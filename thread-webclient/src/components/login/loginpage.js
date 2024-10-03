@@ -42,7 +42,7 @@ const LoginPage = () => {
     <>
       <div>
         <form onSubmit={handleSubmit}>
-          <h2>Login Page</h2>
+          <h2>Login Passssge</h2>
           <input
             type="email"
             onChange={(e) => setValue(e.target.value)}
