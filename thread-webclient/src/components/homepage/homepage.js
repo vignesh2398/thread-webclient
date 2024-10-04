@@ -1,8 +1,11 @@
+import Header from "../headers/headers";
+
 const Homepage=()=>{
     try {
         
         return(<>
-        <h1>homePage</h1>
+        
+        <div><Header/></div>
         
         </>)
     } catch (error) {

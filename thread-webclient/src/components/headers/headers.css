@@ -1,0 +1,67 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Navbar Top Section */
+  .navbar-top {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #f8f8f8;
+  }
+  
+  .navbar-links a, .navbar-contact a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .navbar-contact a {
+    margin-left: 15px;
+  }
+  
+  /* Main Navbar */
+  .navbar-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+  }
+  
+  .navbar-logo h1 {
+    font-size: 30px;
+    font-family: "Arial", sans-serif;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .navbar-menu a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+  }
+  
+  .navbar-search input {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .navbar-icons a {
+    margin: 0 10px;
+    color: black;
+    font-size: 18px;
+    text-decoration: none;
+  }
+  
+  .fa-heart, .fa-shopping-cart {
+    font-size: 20px;
+  }
+  
