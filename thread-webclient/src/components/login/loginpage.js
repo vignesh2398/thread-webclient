@@ -8,12 +8,18 @@ const LoginPage = () => {
   const location = useLocation();
   const [inputValue, setValue] = useState(" ");
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log(`${process.env.backendUrl}/authorizationUrl`);
-    const data = await axios.get(
-      `http://localhost:4200/api/authorizationUrl?email=${inputValue}`
-    );
-    if (data.data.message) window.location.href = data.data.message;
+    try {
+      e.preventDefault();
+      console.log(`${process.env.backendUrl}/authorizationUrl`);
+      const data = await axios.get(
+        `${process.env.backendUrl}?email=${inputValue}`
+      );
+      if (data.data.message) window.location.href = data.data.message;
+      
+    } catch (error) {
+      console.log("error")
+    }
+
 
   };
   useEffect(()=>{

@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "./headers.css";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+    const [isHovered, setIsHovered] = useState(false);
+    const navigate = useNavigate();
+    const handleClick=(e)=>{
+        e.preventDefault();
+        navigate('/login')
+
+    }
+    const handleMouseEnter = (e) => {
+        setIsHovered(true)
+      };
+    const handleMouseleave = (e) => {
+        setIsHovered(false)
+      };
   return (
     <header className="navbar">
       <div className="navbar-top">
         <div className="navbar-links">
           <a href="/">Offers</a>
           <a href="/">Fanbook</a>
-          <a href="/">Download App</a>
           <a href="/">TriBe Membership</a>
         </div>
         <div className="navbar-contact">
@@ -21,7 +34,8 @@ const Header = () => {
           <h1>Thread</h1>
         </div>
         <nav className="navbar-menu">
-          <a href="/">MEN</a>
+          <a href="/" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseleave} >MEN</a>
+          <a>{isHovered ? "!" : ""}</a>
           <a href="/">WOMEN</a>
           <a href="/">MOBILE COVERS</a>
         </nav>
@@ -29,7 +43,7 @@ const Header = () => {
           <input type="text" placeholder="Search by products" />
         </div>
         <div className="navbar-icons">
-          <a href="/">LOGIN</a>
+          <a href="/" onClick={handleClick}>LOGIN</a>
           <a href="/">
             <i className="fa fa-heart"></i>
           </a>
