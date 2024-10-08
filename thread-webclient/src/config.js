@@ -1,1 +1,1 @@
-module.exports.config={"backendUrl":"http://localhost:4200/api"}
+module.exports.config={"backendUrl":"https://zany-chainsaw-7w5jrjqxwq52wgx-4200.app.github.dev/api"}

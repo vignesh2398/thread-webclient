@@ -1,0 +1,1 @@
+module.exports.asset={"login":"https://images.unsplash.com/photo-1678483789107-0029c61fdcca?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNoYXQlMjBncHR8ZW58MHx8MHx8fDA%3D"}

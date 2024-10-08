@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { config } from "../../config";
+import { asset } from "../../asset/login";
+import "./loginPage.css"
+
 
 const LoginPage = () => {
     const navigate = useNavigate();
@@ -23,44 +26,42 @@ const LoginPage = () => {
 
 
   };
-  
-  useEffect(()=>{
-    const code = searchParams.get('code'); // Extract 'code' from URL params
-    console.log("useefffect")
-    fetchToken()
-    if (!code) {
-
-      return;
-    }
-  })
+  let code
   const fetchToken=async()=>{
     try {
         const params = new URLSearchParams(location.search);
-        const code = params.get('code');
+         code = params.get('code');
         const scope = params.get('scope');
-        console.log({scope})
         const data = await axios.post(
-            `http://localhost:4200/api/token`,{code}
+            `${config.backendUrl}/token`,{code}
         );
+
 navigate("/home")
     } catch (error) {
         console.log("error in axios")
     }
 
 }
+useEffect(()=>{
+  const code = searchParams.get('code'); // Extract 'code' from URL params
+  console.log("useefffect")
+  fetchToken()
+  if (code) {
+
+    return;
+  }
+},[code])
   return (
-    <>
-      <div>
+    <div className="container">
+
         <form onSubmit={handleSubmit}>
-          <img src="" alt="login image"/>
-          <input
-            type="email"
-            onChange={(e) => setValue(e.target.value)}
-          ></input>
-          <button>Login</button>
+          <div className="left-half">
+          <img src={asset.login} alt="login image" />
+          </div>
+
         </form>
-      </div>
-    </>
+
+    </div>
   );
 };
 export default LoginPage;
