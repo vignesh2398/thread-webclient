@@ -1,19 +1,18 @@
-.right-half {
-    width: 50vw; /* 50% of the viewport width */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center the content vertically */
-    align-items: center; /* Center the content horizontally */
-    padding: 20px;
-    background-color: #c43f3f; /* Background color for the right half */
-    height: 100vh;
-  }
+    .right-half {
+        flex: 1;                   /* 50% width of the parent div */
+        background-color: lightcoral;
+        display: flex;
+        justify-content: center;   /* Center content horizontally */
+        align-items: center;          /* Center content vertically */
+    }
   .container {
     display: flex;
     height: 100vh; /* Full viewport height */
   }
   .left-half { 
-    background-color: aqua;
-    width: 50vw; /* 50% of the viewport width */
-    height: 100vh; /* Full viewport height */
+    flex: 1;                   /* 50% width of the parent div */
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;   /* Center content horizontally */
+    align-items: center;    
   }

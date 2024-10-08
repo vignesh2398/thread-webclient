@@ -58,6 +58,7 @@ useEffect(()=>{
           <div className="left-half">
           <img src={asset.login} alt="login image" />
           </div>
+          <div className="right-half"><input/></div>
 
         </form>
 
