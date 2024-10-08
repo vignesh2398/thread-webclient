@@ -1,18 +1,19 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
+import { config } from "../../config";
 
 const LoginPage = () => {
     const navigate = useNavigate();
   const location = useLocation();
   const [inputValue, setValue] = useState(" ");
+  const [searchParams] = useSearchParams();
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      console.log(`${process.env.backendUrl}/authorizationUrl`);
       const data = await axios.get(
-        `${process.env.backendUrl}?email=${inputValue}`
+        `${config.backendUrl}/authorizationUrl?email=${inputValue}`
       );
       if (data.data.message) window.location.href = data.data.message;
       
@@ -22,33 +23,36 @@ const LoginPage = () => {
 
 
   };
+  
   useEffect(()=>{
-    const fetchToken=async()=>{
-        try {
-            const params = new URLSearchParams(location.search);
-            const code = params.get('code');
-            const scope = params.get('scope');
-            console.log({scope})
-            const data = await axios.post(
-                `http://localhost:4200/api/token`,{code}
-            );
-            if(data)
-                navigate('/home');
-
-        } catch (error) {
-            console.log("error in axios")
-        }
-
-    }
+    const code = searchParams.get('code'); // Extract 'code' from URL params
+    console.log("useefffect")
     fetchToken()
+    if (!code) {
 
- 
-  },[navigate])
+      return;
+    }
+  })
+  const fetchToken=async()=>{
+    try {
+        const params = new URLSearchParams(location.search);
+        const code = params.get('code');
+        const scope = params.get('scope');
+        console.log({scope})
+        const data = await axios.post(
+            `http://localhost:4200/api/token`,{code}
+        );
+navigate("/home")
+    } catch (error) {
+        console.log("error in axios")
+    }
+
+}
   return (
     <>
       <div>
         <form onSubmit={handleSubmit}>
-          <h2>Login Passssge</h2>
+          <img src="" alt="login image"/>
           <input
             type="email"
             onChange={(e) => setValue(e.target.value)}

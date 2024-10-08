@@ -1,0 +1,1 @@
+module.exports.config={"backendUrl":"http://localhost:4200/api"}

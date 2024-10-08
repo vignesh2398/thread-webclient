@@ -8,8 +8,8 @@ function App() {
     <div className="App">
            <Routes>
            {/* <Route path="/" element={ navigate('/login')} /> */}
-        <Route path="/" element={<Homepage />}/>
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/home" element={<Homepage />} />
       </Routes>
     </div>
   );
